@@ -1,9 +1,12 @@
 .navbar{
     display: flex;
     justify-content: space-around;
-    //align-items: center;
+    align-items: center;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
+    &__dropdown{
+        display: none;
+    }
     &__logo{
         display: flex;
         align-items: center;
@@ -79,12 +82,156 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: rgb(255, 255, 255);
             border-radius: 15px;
             margin-left: -32px;
             margin-top: -25px;
             font-size: 14px;
         }
         
+    }
+}
+@media(max-width:1280px) {
+    .navbar{
+        padding: 12px 50px;
+        &__logo{ 
+            img{
+                width: 30px;
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+        &__menu{
+            gap:30px;
+            font-size: 16px;
+        }
+        &__login_cart{
+            gap: 30px;
+            button{
+                padding: 9px 20px;
+                width: 120px;
+                height: 45px;
+                font-size: 16px;
+            }
+            &__counter{
+                margin-left: -40px;
+                font-size: 12px;
+            }
+        }
+
+    }
+}
+@media(max-width:1024px) {
+    .navbar{
+        padding: 12px 30px;
+        &__logo{ 
+            img{
+                width: 40px;
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+        &__menu{
+            gap:25px;
+            font-size: 14px;
+        }
+        &__login_cart{
+            gap: 30px;
+            button{
+                width: 80px;
+                height: 35px;
+                font-size: 14px;
+            }
+            &__counter{
+                width: 18px;
+                height: 18px;
+                margin-left: -40px;
+                font-size: 12px;
+            }
+        }
+
+    }
+}
+@media(max-width:800px) {
+    .navbar{
+        padding: 10px 0px;
+        &__dropdown{
+            display: block;
+            width: 30px;
+            rotate: -90deg;
+            transition: 0.5s;
+            &.open{
+                transform: rotate(90deg);
+            }
+        }
+        &__logo{ 
+            img{
+                width: 40px;
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+        &__menu{
+            display: none;
+            height: 80px;
+            width: 100%;
+            position: absolute;
+            background-color: white;
+            justify-content: center;
+            top: 50px;
+            &-visible{
+                display: flex;
+            }
+        }
+        &__login_cart{
+            gap: 30px;
+            button{
+                width: 80px;
+                height: 35px;
+                font-size: 14px;
+            }
+            &__counter{
+                width: 18px;
+                height: 18px;
+                margin-left: -40px;
+                font-size: 12px;
+            }
+        }
+
+    }
+}
+@media(max-width:500px) {
+    .navbar{
+        padding: 8px 0px;
+        gap: 0;
+        &__dropdown{
+            display: block;
+            width: 30px;
+            rotate: -90deg;
+            transition: 0.5s;
+            &.open{
+                transform: rotate(90deg);
+            }
+        }
+        &__logo{ 
+            transform: scale(0.8);
+            img{
+                width: 40px;
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+        &__menu{
+            height: 70px;
+            top: 50px;
+        }
+        &__login_cart{
+            transform: scale(0.8);
+        }
+
     }
 }

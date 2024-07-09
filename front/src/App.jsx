@@ -11,7 +11,7 @@ import Footer from './Components/Footer/Footer'
 import men_banner from './Components/Assets/Frontend_Assets/banner_mens.png'
 import women_banner from './Components/Assets/Frontend_Assets/banner_women.png'
 import kids_banner from './Components/Assets/Frontend_Assets/banner_kids.png'
-
+//to continue to make the app responsive -> 3.17.00
 function App() {
   return (
     <>
