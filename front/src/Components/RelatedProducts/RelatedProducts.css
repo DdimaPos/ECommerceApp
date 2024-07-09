@@ -1,24 +1,23 @@
-.newcol {
+.relprod {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   height: 90vh;
 }
-.newcol h1 {
+.relprod h1 {
   color: #171717;
-  font-size: 50px;
   font-weight: 600;
+  font-size: 50px;
 }
-.newcol hr {
+.relprod hr {
   width: 200px;
   height: 6px;
   border-radius: 10px;
   background-color: #252525;
 }
-.newcol__collections {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+.relprod__items {
   margin-top: 50px;
+  display: flex;
   gap: 30px;
-}/*# sourceMappingURL=NewCollections.css.map */
+}/*# sourceMappingURL=RelatedProducts.css.map */

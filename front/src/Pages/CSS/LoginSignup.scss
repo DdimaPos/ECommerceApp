@@ -1,0 +1,66 @@
+$button-color: #ff4141;
+$grey: #5c5c5c;
+.loginsign{
+    width: 100%;
+    height: 80vh;
+    background-color: #fce3fe;
+    padding-top: 100px;
+    &__container{
+        width: 580px;
+        height: 600px;
+        background-color: white;
+        margin: auto;
+        padding: 40px 60px;
+        h1{
+            margin: 20px 0px;
+        }
+        &__fields{
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 30px;
+            input{
+                height: 72px;
+                width: 100%;
+                padding: 0 0 0 20px;
+                border: 1px solid  #c9c9c9;
+                outline: none;
+                color: $grey;
+                font-size: 18px;
+            }
+        }
+        button{
+            width: 580px;
+            height: 72px;
+            color: white;
+            background-color: $button-color;
+            margin: 30px 0 0 0;
+            border: none;
+            font-size: 24px;
+            font-weight: 500;
+            cursor: pointer
+        }
+        &__login{
+            //margin: 20px 0 0 0;
+            color: $grey;
+            font-size: 18px;
+            font-weight: 500;
+            span{
+                color: $button-color;
+                font-weight: 600;
+            }
+        }
+        &__agree{
+            display: flex;
+            align-items: center;
+            //margin: 25px 0 0 0;
+            gap: 20px;
+            color: $grey;
+            font-size: 18px;
+            font-weight: 500;
+            input{
+                width: 20px;
+            }
+        }
+    }
+}

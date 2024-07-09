@@ -1,0 +1,62 @@
+.loginsign {
+  width: 100%;
+  height: 80vh;
+  background-color: #fce3fe;
+  padding-top: 100px;
+}
+.loginsign__container {
+  width: 580px;
+  height: 600px;
+  background-color: white;
+  margin: auto;
+  padding: 40px 60px;
+}
+.loginsign__container h1 {
+  margin: 20px 0px;
+}
+.loginsign__container__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 30px;
+}
+.loginsign__container__fields input {
+  height: 72px;
+  width: 100%;
+  padding: 0 0 0 20px;
+  border: 1px solid #c9c9c9;
+  outline: none;
+  color: #5c5c5c;
+  font-size: 18px;
+}
+.loginsign__container button {
+  width: 580px;
+  height: 72px;
+  color: white;
+  background-color: #ff4141;
+  margin: 30px 0 0 0;
+  border: none;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.loginsign__container__login {
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+.loginsign__container__login span {
+  color: #ff4141;
+  font-weight: 600;
+}
+.loginsign__container__agree {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+.loginsign__container__agree input {
+  width: 20px;
+}/*# sourceMappingURL=LoginSignup.css.map */

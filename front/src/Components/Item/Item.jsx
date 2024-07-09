@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import "./Item.css"
 export default function Item(props){
     return(
         <>
         <div className="item">
-            <img src={props.image} alt="image of product not found" />
+            <Link to={`/product/${props.id}`} >
+                <img onClick={window.scrollTo(0,0)} src={props.image} alt="imagenot found" />
+            </Link>
             <p>{props.name}</p>
             <div className="item__prices">
                 <div className="item__prices__new">
