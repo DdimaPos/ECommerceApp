@@ -134,6 +134,77 @@ app.get('/allproducts', async (req, res)=>{
     console.log('All products fetched');
     res.send(product_list);
 })
+
+//Schema creating for user model
+const User = mongoose.model('User',{
+    name:{
+        type: String,
+    },
+    email:{
+        type:String,
+        unique: true,
+    },
+    password:{
+        type:String,
+    },
+    cartData:{
+        type:Object,
+    },
+    date:{
+        type:Date,
+        default:Date.now,
+    }
+})
+
+//Creating enndpoint for registering the user
+app.post('/signup', async (req, res)=>{
+    //Check if there is an already existing account
+    let check = await User.findOne({email:req.body.email})
+    if(check){
+        return res.status(400).json({success:false, error:"existing user found with same email"})
+    }
+    let cart = {}
+    //I think it is a bad habit, should be replaced if size of store is huge 
+    for(let i=0; i < 300; i++){
+        cart[i]=0;
+    }
+    //Define the new user
+    const user = new User({
+        name: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        cartData:cart,
+    })
+    await user.save();
+
+    const data = {
+        user:{
+            id:user.id
+        }
+    }
+    const token = jwt.sign(data, 'secret_ecom');
+    res.json({success:true, token})
+})
+//Creating endpoint for user login
+app.post('/login' , async (req, res)=>{
+    let user = await User.findOne({email:req.body.email});
+    if(user){
+        if(req.body.password===user.password){
+            const data = {
+                user:{
+                    id:user.id
+                } 
+            }
+            const token = jwt.sign(data, 'secret_ecom')
+            res.json({success:true, token})
+        }else{
+            res.json({success:false, error:"Wrong Password"})
+        }
+    }else{
+        res.json({success:false, error:"Email not found"})
+    }
+})
+
 // Start the server and listen on the defined port
 app.listen(port, (err) => {
     if (!err) {

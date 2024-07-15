@@ -48,6 +48,7 @@
 .loginsign__container__login span {
   color: #ff4141;
   font-weight: 600;
+  cursor: pointer;
 }
 .loginsign__container__agree {
   display: flex;

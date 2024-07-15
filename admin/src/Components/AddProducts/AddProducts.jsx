@@ -46,7 +46,7 @@ export default function AddProducts(){
                 },
                 body:JSON.stringify(product),
             }).then((resp)=>resp.json()).then((data)=>{
-                data.success?alert('Product added'):alert('Product not added')
+                //data.success?alert('Product added'):alert('Product not added')
             })
         }
     }
