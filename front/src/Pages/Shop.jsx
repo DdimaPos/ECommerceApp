@@ -5,6 +5,7 @@ import Offers from "../Components/Offers/Offers"
 import NewCollections from "../Components/NewCollections/NewCollection";
 import NewsLetter from "../Components/NewsLetter/NewsLetter";
 export default function Shop(){
+    
     return(
         <>
             <Hero/>

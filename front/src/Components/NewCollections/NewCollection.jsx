@@ -1,9 +1,16 @@
 import React from "react";
 import "./NewCollections.css"
-import new_collection from "../Assets/Frontend_Assets/new_collections"
+//import new_collection from "../Assets/Frontend_Assets/new_collections"
 import Item from "../Item/Item";
+import { useState ,useEffect } from "react";
 
 export default function NewCollections(){
+    const [new_collection, setNew_collection]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:4000/newcollection')
+        .then((response)=>response.json())
+        .then((data)=>setNew_collection(data));
+    },[])
     return(
         <>
         <div className="newcol">

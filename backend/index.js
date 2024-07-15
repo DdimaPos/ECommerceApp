@@ -204,7 +204,60 @@ app.post('/login' , async (req, res)=>{
         res.json({success:false, error:"Email not found"})
     }
 })
+//Creating endpoint for newcollection data
+app.get('/newcollection',async (req, res)=>{
+    let products = await Product.find({});
+    let newcollection = products.slice(1).slice(-8);
+    console.log("New collection fetched");
+    res.send(newcollection);
+})
+//Creating endpoint for 'popular for women 
+app.get('/popularinwomen', async (req, res)=>{
+    let products = await Product.find({category:"Women"});
+    let popularinwomen = products.slice(0,4);
+    console.log("Popular in women fetched");
+    res.send(popularinwomen);
+})
 
+//Creating middleware to fetch user
+const fetchUser = async (req, res, next)=>{
+    const token = req.header('auth-token');
+    if(!token){
+        res.status(401).send({errors:"Autentificate using a valid token"})
+    }else{
+        try{
+            const data = jwt.verify(token,'secret_ecom');
+            req.user = data.user;
+            next();
+        }catch(error){
+            res.status(401).send({error:"Autentificate using a valid token"})
+        }
+    }
+}
+//Creating endppoint for cart data
+app.post('/addtocart', fetchUser,async (req, res)=>{
+    //console.log(req.body, req.user);
+    let userData = await User.findOne({_id:req.user.id});
+    
+    userData.cartData[req.body.itemId]++;
+    await User.findOneAndUpdate({_id:req.user.id}, {cartData:userData.cartData})
+    res.send({success:true, message:'added'})
+})
+//Creating endpoint to remove the cart item
+app.post('/removefromcart', fetchUser, async (req, res)=>{
+    //console.log(req.body, req.user);
+    let userData = await User.findOne({_id:req.user.id});
+    if(userData.cartData[req.body.itemId] > 0)
+        userData.cartData[req.body.itemId]--;
+    await User.findOneAndUpdate({_id:req.user.id}, {cartData:userData.cartData})
+    res.send({success:true, message:'removed'})
+})
+//create endpoint to get cart data
+app.post('/getcart', fetchUser, async (req, res)=>{
+    let userData = await User.findOne({_id:req.user.id});
+    res.json(userData.cartData)
+    console.log("Cart data sent")
+})
 // Start the server and listen on the defined port
 app.listen(port, (err) => {
     if (!err) {
