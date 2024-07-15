@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+  box-shadow: 0 1px 3px -2px #000;
+  margin: 0 0 1px 0;
+  background-color: white;
+}
+.navbar__logo {
+  width: 200px;
+}
+.navbar__profile {
+  width: 75px;
+}/*# sourceMappingURL=Navbar.css.map */
