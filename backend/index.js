@@ -11,6 +11,8 @@ const multer = require("multer"); // Middleware for handling multipart/form-data
 const path = require("path"); // Node.js module for working with file and directory paths
 const cors = require("cors"); // Middleware to enable Cross-Origin Resource Sharing (CORS)
 
+require('dotenv').config()
+
 // Middleware to parse JSON bodies in HTTP requests
 app.use(express.json());
 
@@ -18,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to the MongoDB database using Mongoose
-mongoose.connect("mongodb+srv://starplatinum:00078@cluster0.kfenmzl.mongodb.net/e-commerce");
+mongoose.connect(`mongodb+srv://starplatinum:${process.env.db_password}@cluster0.kfenmzl.mongodb.net/e-commerce`);
 
 // Create a simple GET API endpoint
 // When the root URL ("/") is accessed, it responds with a message
