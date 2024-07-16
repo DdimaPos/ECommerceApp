@@ -17,12 +17,17 @@ const ShopContextProvider = (props) =>{
     //define a state for car(empty by default)
     const [all_product, setAll_product]=useState([]);
     const [cartItem, setCartItem]=useState(getDefaultCart());
+    const [loading, setLoading] = useState(true);
     //include in context all necessary data
     
     useEffect(()=>{
         fetch('http://localhost:4000/allproducts')
         .then((response)=>response.json())
-        .then((data)=>setAll_product(data))
+        .then((data)=>{
+            setAll_product(data); 
+            setLoading(false);
+        })
+        
         if(localStorage.getItem('auth-token')){
             fetch('http://localhost:4000/getcart',{
                 method: 'POST',
@@ -98,7 +103,7 @@ const ShopContextProvider = (props) =>{
         }
         return counter;
     }
-    const contextValue = {getTotalCartItems, getTotalCartAmount, all_product, cartItem, addToCart, removeFromCart};
+    const contextValue = {getTotalCartItems, getTotalCartAmount, all_product, cartItem, addToCart, removeFromCart, loading};
     return (
         <ShopContext.Provider value={contextValue}>
             {props.children}

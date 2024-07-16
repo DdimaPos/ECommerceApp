@@ -3,6 +3,7 @@ import "./Breadcrum.css"
 import arrow_icon from "../Assets/Frontend_Assets/breadcrum_arrow.png"
 export default function Breadcrum(props){
     const {product} = props;
+   // console.log(product)
     return(
         <>
         <div className="breadcrum">
