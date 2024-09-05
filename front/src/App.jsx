@@ -23,7 +23,7 @@ function App() {
           <Route path='/women' element={<ShopCategory banner={women_banner} category="Women"/>}/>
           <Route path='/kids' element={<ShopCategory banner={kids_banner} category="Kids"/>}/>
           
-          <Route path='/product' element={<Product />}> 
+          <Route path='/product' element={<Product />}> lcoalhost:3000/product/pro
             <Route path=':productID' element={<Product/>}/>
           </Route>
 
